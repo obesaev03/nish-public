@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Новости — НИШ ИГСУ{% endblock %}
+{% block nav_news %}mainbar__nav-link--active{% endblock %}
+
+{% block content %}
+<section class="section section--light">
+  <div class="container">
+    <div class="section__header section__header--row">
+      <div>
+        <span class="section__tag">Актуальное</span>
+        <h1 class="section__heading">Новости и анонсы НИШ</h1>
+      </div>
+    </div>
+
+    <!-- Фильтры по категориям -->
+    <div class="mb-4 d-flex flex-wrap gap-2">
+      <a href="{% url 'news_list' %}" class="btn {% if not current_category %}btn--primary{% else %}btn--outline{% endif %}" style="font-size:.8rem; padding:6px 16px;">Все</a>
+      {% for value, label in categories %}
+        <a href="?category={{ value }}" class="btn {% if current_category == value %}btn--primary{% else %}btn--outline{% endif %}" style="font-size:.8rem; padding:6px 16px;">{{ label }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="news-grid">
+      {% for item in news_list %}
+      <article class="news-card">
+        <div class="news-card__meta">
+          <span class="news-card__cat">{{ item.get_category_display }}</span>
+          <time class="news-card__date" datetime="{{ item.published_at|date:'Y-m-d' }}">
+            {{ item.published_at|date:"j E Y" }}
+          </time>
+        </div>
+        <h2 class="news-card__title" style="font-size:1rem;">{{ item.title }}</h2>
+        <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        <a href="{% url 'news_detail' item.pk %}" class="news-card__link">Читать →</a>
+      </article>
+      {% empty %}
+      <div class="col-12">
+        <p class="text-muted py-4">Новостей в данной категории пока нет.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

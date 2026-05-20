@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Интегратор НИР — НИШ ИГСУ{% endblock %}
+{% block nav_nir %}mainbar__nav-link--active{% endblock %}
+
+{% block content %}
+<section class="section section--light" aria-labelledby="nir-heading">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">Раздел 03</span>
+      <h1 class="section__heading" id="nir-heading">
+        Интегратор информации<br>о запросах по внешним НИР
+      </h1>
+      <p class="section__lead">
+        Агрегатор актуальных запросов на научно-исследовательские работы от
+        министерств, ведомств, госкорпораций и региональных органов власти.
+      </p>
+    </div>
+
+    <!-- Фильтр по статусу -->
+    <div class="mb-4 d-flex flex-wrap gap-2">
+      <a href="{% url 'research_projects' %}" class="btn {% if not current_status %}btn--primary{% else %}btn--outline{% endif %}" style="font-size:.8rem; padding:6px 16px;">Все</a>
+      {% for value, label in statuses %}
+        <a href="?status={{ value }}" class="btn {% if current_status == value %}btn--primary{% else %}btn--outline{% endif %}" style="font-size:.8rem; padding:6px 16px;">{{ label }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="nir-table-wrap">
+      <table class="nir-table" aria-label="Запросы по НИР">
+        <thead>
+          <tr>
+            <th scope="col">Заказчик</th>
+            <th scope="col">Тема НИР</th>
+            <th scope="col">Срок подачи</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in projects %}
+          <tr>
+            <td data-label="Заказчик">{{ project.customer }}</td>
+            <td data-label="Тема НИР">{{ project.title }}</td>
+            <td data-label="Срок">{{ project.deadline|date:"j E Y" }}</td>
+            <td data-label="Статус">
+              <span class="status status--{{ project.status }}">{{ project.get_status_display }}</span>
+            </td>
+            <td data-label="Описание">
+              {% if project.description %}
+                <span style="font-size:.85rem; color:var(--grey-600);">{{ project.description|truncatewords:15 }}</span>
+              {% else %}
+                <span style="color:var(--grey-400); font-size:.85rem;">—</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="text-center py-4" style="color:var(--grey-400);">
+              Запросы не найдены. Добавьте их в <a href="/admin/" style="color:var(--red);">админ-панели</a>.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section__cta">
+      <a href="{% url 'appeal' %}" class="btn btn--outline">Разместить запрос</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Словарь государственной службы — НИШ ИГСУ{% endblock %}
+{% block nav_dict %}mainbar__nav-link--active{% endblock %}
+
+{% block content %}
+
+<!-- Шапка раздела -->
+<section class="section section--red" aria-labelledby="dict-heading">
+  <div class="container">
+    <div class="dict-layout">
+      <div class="dict-layout__info">
+        <span class="section__tag section__tag--light">Раздел 02</span>
+        <h1 class="section__heading section__heading--white" id="dict-heading">
+          Онлайн-словарь<br>«Государственная служба»
+        </h1>
+        <p class="section__lead section__lead--white">
+          Академический терминологический справочник с определениями понятий
+          государственного управления и публичного права.
+        </p>
+      </div>
+
+      <div class="dict-layout__widget">
+        <div class="dict-widget">
+          <p class="dict-widget__label">Поиск термина</p>
+          <form method="get">
+            <div class="dict-widget__search">
+              <input
+                type="search"
+                name="query"
+                class="dict-widget__input"
+                value="{{ query }}"
+                placeholder="Например: «государственная должность»"
+                aria-label="Поиск термина в словаре"
+              />
+              <button class="dict-widget__btn" type="submit" aria-label="Найти">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                  <path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="dict-widget__tags mt-3" aria-label="Популярные термины">
+            {% for entry in popular %}
+              <a href="?query={{ entry.term|urlencode }}" class="dict-tag">{{ entry.term }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Результаты -->
+<section class="section section--light">
+  <div class="container">
+    {% if query %}
+      <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:1.5rem; color:var(--grey-800);">
+        Результаты поиска по запросу: <span style="color:var(--red);">«{{ query }}»</span>
+        — найдено {{ entries|length }}
+      </h2>
+    {% endif %}
+
+    {% if entries %}
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        {% for entry in entries %}
+        <div class="dict-result-entry">
+          <p class="dict-result-entry__term">{{ entry.term }}</p>
+          <p class="dict-result-entry__def">{{ entry.definition }}</p>
+          {% if entry.source %}
+          <p class="dict-result-entry__source">Источник: {{ entry.source }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {% if query %}
+      <p class="dict-not-found">Термин «{{ query }}» не найден. Попробуйте изменить запрос.</p>
+      {% else %}
+      <p class="section__lead">Словарь пока не заполнен. Добавьте записи в <a href="/admin/" style="color:var(--red);">админ-панели</a>.</p>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

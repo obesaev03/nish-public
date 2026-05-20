@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ news.title }} — НИШ ИГСУ{% endblock %}
+{% block nav_news %}mainbar__nav-link--active{% endblock %}
+
+{% block content %}
+<section class="section section--light">
+  <div class="container" style="max-width:860px;">
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb" style="font-size:.8rem;">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="color:var(--red);">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'news_list' %}" style="color:var(--red);">Новости</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ news.title|truncatewords:8 }}</li>
+      </ol>
+    </nav>
+
+    <div class="news-card__meta mb-3">
+      <span class="news-card__cat">{{ news.get_category_display }}</span>
+      <time class="news-card__date ms-3" datetime="{{ news.published_at|date:'Y-m-d' }}">
+        {{ news.published_at|date:"j E Y" }}
+      </time>
+    </div>
+
+    <h1 style="font-size:clamp(1.4rem,3vw,2rem); font-weight:700; line-height:1.25; color:var(--grey-800); margin-bottom:1.5rem;">
+      {{ news.title }}
+    </h1>
+
+    {% if news.image %}
+    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="img-fluid rounded mb-4" style="max-height:400px; width:100%; object-fit:cover;">
+    {% endif %}
+
+    <div style="font-size:1rem; line-height:1.75; color:var(--grey-800);">
+      {{ news.content|linebreaks }}
+    </div>
+
+    {% if related %}
+    <hr class="my-5" style="border-color:var(--grey-200);">
+    <h2 style="font-size:1.1rem; font-weight:700; margin-bottom:1.5rem;">Читайте также</h2>
+    <div class="news-grid">
+      {% for item in related %}
+      <article class="news-card">
+        <div class="news-card__meta">
+          <span class="news-card__cat">{{ item.get_category_display }}</span>
+          <time class="news-card__date" datetime="{{ item.published_at|date:'Y-m-d' }}">{{ item.published_at|date:"j E Y" }}</time>
+        </div>
+        <h3 class="news-card__title">{{ item.title }}</h3>
+        <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        <a href="{% url 'news_detail' item.pk %}" class="news-card__link">Читать →</a>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

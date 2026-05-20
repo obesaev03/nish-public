@@ -1,0 +1,260 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ===== ГЕРОЙ-БЛОК ===== -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__bg-pattern" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Портал научно-исследовательской школы</p>
+      <h1 class="hero__heading" id="hero-heading">
+        Государственная служба<br>и управление
+      </h1>
+      <p class="hero__desc">
+        Единое информационное пространство ИГСУ РАНХиГС для поддержки научных
+        коллективов, профессионального развития и интеграции исследовательских запросов.
+      </p>
+      <div class="hero__actions">
+        <a href="{% url 'appeal' %}" class="btn btn--primary">Консультации</a>
+        <a href="{% url 'dictionary' %}" class="btn btn--primary">Словарь ГС</a>
+        <a href="{% url 'research_projects' %}" class="btn btn--primary">Интегратор НИР</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__badge">
+        <span class="hero__badge-year">с&nbsp;1921</span>
+        <span class="hero__badge-label">Академия государственного управления</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== РАЗДЕЛ 1: ПОДДЕРЖКА ===== -->
+<section class="section section--light" id="support" aria-labelledby="support-heading">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">Раздел 01</span>
+      <h2 class="section__heading" id="support-heading">
+        Информационно-консультационная<br>поддержка коллективов ИГСУ
+      </h2>
+      <p class="section__lead">
+        Центр компетенций для научных и педагогических коллективов кафедр и
+        институтов ИГСУ: экспертные консультации, методическая помощь, правовое
+        сопровождение исследований.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="36" height="32" rx="3" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M14 18h20M14 24h14M14 30h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="card__title">Методическая база</h3>
+        <p class="card__text">
+          Шаблоны, регламенты и методические рекомендации для организации
+          научных исследований и проектной деятельности.
+        </p>
+        <a href="#" class="card__link">Открыть базу →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="18" r="10" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="card__title">Экспертное сообщество</h3>
+        <p class="card__text">
+          Доступ к сети экспертов и учёных ИГСУ для получения профессиональных
+          консультаций по тематике государственного управления.
+        </p>
+        <a href="#" class="card__link">Найти эксперта →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6v36M6 24h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h3 class="card__title">Онлайн-запрос</h3>
+        <p class="card__text">
+          Направьте запрос на консультацию в удобном формате: выберите тему,
+          эксперта и получите ответ в личном кабинете.
+        </p>
+        <a href="{% url 'appeal' %}" class="card__link">Оставить запрос →</a>
+      </article>
+    </div>
+
+    <div class="section__cta">
+      <a href="{% url 'appeal' %}" class="btn btn--primary">Перейти в раздел поддержки</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== РАЗДЕЛ 2: СЛОВАРЬ ===== -->
+<section class="section section--red" id="dictionary" aria-labelledby="dict-heading">
+  <div class="container">
+    <div class="dict-layout">
+      <div class="dict-layout__info">
+        <span class="section__tag section__tag--light">Раздел 02</span>
+        <h2 class="section__heading section__heading--white" id="dict-heading">
+          Онлайн-словарь<br>«Государственная служба»
+        </h2>
+        <p class="section__lead section__lead--white">
+          Академический терминологический справочник с определениями понятий
+          государственного управления, государственной службы и публичного права.
+          Источники — нормативные акты, научные труды учёных РАНХиГС и ИГСУ.
+        </p>
+        <a href="{% url 'dictionary' %}" class="btn btn--white">Открыть словарь</a>
+      </div>
+
+      <div class="dict-layout__widget">
+        <div class="dict-widget">
+          <p class="dict-widget__label">Быстрый поиск термина</p>
+          <form method="get" action="{% url 'dictionary' %}">
+            <div class="dict-widget__search">
+              <input
+                type="search"
+                name="query"
+                class="dict-widget__input"
+                placeholder="Например: «государственная должность»"
+                aria-label="Поиск термина в словаре"
+              />
+              <button class="dict-widget__btn" type="submit" aria-label="Найти">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                  <path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="dict-widget__tags" aria-label="Популярные термины">
+            {% for entry in popular_terms %}
+              <a href="{% url 'dictionary' %}?query={{ entry.term|urlencode }}" class="dict-tag">{{ entry.term }}</a>
+            {% empty %}
+              <a href="{% url 'dictionary' %}?query=государственная+служба" class="dict-tag">государственная служба</a>
+              <a href="{% url 'dictionary' %}?query=чиновник" class="dict-tag">чиновник</a>
+              <a href="{% url 'dictionary' %}?query=должностной+регламент" class="dict-tag">должностной регламент</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== РАЗДЕЛ 3: НИР ===== -->
+<section class="section section--light" id="nir" aria-labelledby="nir-heading">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">Раздел 03</span>
+      <h2 class="section__heading" id="nir-heading">
+        Интегратор информации<br>о запросах по внешним НИР
+      </h2>
+      <p class="section__lead">
+        Агрегатор актуальных запросов на научно-исследовательские работы от
+        министерств, ведомств, госкорпораций и региональных органов власти.
+      </p>
+    </div>
+
+    <div class="nir-table-wrap">
+      <table class="nir-table" aria-label="Актуальные запросы по НИР">
+        <thead>
+          <tr>
+            <th scope="col">Заказчик</th>
+            <th scope="col">Тема НИР</th>
+            <th scope="col">Срок подачи</th>
+            <th scope="col">Статус</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in nir_projects %}
+          <tr>
+            <td data-label="Заказчик">{{ project.customer }}</td>
+            <td data-label="Тема НИР">{{ project.title }}</td>
+            <td data-label="Срок">{{ project.deadline|date:"j E Y" }}</td>
+            <td data-label="Статус">
+              <span class="status status--{{ project.status }}">{{ project.get_status_display }}</span>
+            </td>
+            <td><a href="{% url 'research_projects' %}" class="table-link">Подробнее</a></td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="text-center py-4" style="color: var(--grey-400);">Запросы пока не добавлены</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section__cta">
+      <a href="{% url 'research_projects' %}" class="btn btn--primary">Все запросы НИР</a>
+      <a href="{% url 'appeal' %}" class="btn btn--outline">Разместить запрос</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== НОВОСТИ ===== -->
+<section class="section section--grey" id="news" aria-labelledby="news-heading">
+  <div class="container">
+    <div class="section__header section__header--row">
+      <div>
+        <span class="section__tag">Актуальное</span>
+        <h2 class="section__heading" id="news-heading">Новости и анонсы НИШ</h2>
+      </div>
+      <a href="{% url 'news_list' %}" class="btn btn--outline">Все новости</a>
+    </div>
+
+    <div class="news-grid">
+      {% if featured_news %}
+      <article class="news-card news-card--featured">
+        <div class="news-card__meta">
+          <span class="news-card__cat">{{ featured_news.get_category_display }}</span>
+          <time class="news-card__date" datetime="{{ featured_news.published_at|date:'Y-m-d' }}">
+            {{ featured_news.published_at|date:"j E Y" }}
+          </time>
+        </div>
+        <div>
+          <h3 class="news-card__title">{{ featured_news.title }}</h3>
+          <p class="news-card__excerpt">{{ featured_news.excerpt }}</p>
+          <a href="{% url 'news_detail' featured_news.pk %}" class="news-card__link">Подробнее →</a>
+        </div>
+      </article>
+      {% endif %}
+
+      {% for item in latest_news %}
+      <article class="news-card">
+        <div class="news-card__meta">
+          <span class="news-card__cat">{{ item.get_category_display }}</span>
+          <time class="news-card__date" datetime="{{ item.published_at|date:'Y-m-d' }}">
+            {{ item.published_at|date:"j E Y" }}
+          </time>
+        </div>
+        <h3 class="news-card__title">{{ item.title }}</h3>
+        <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        <a href="{% url 'news_detail' item.pk %}" class="news-card__link">Читать →</a>
+      </article>
+      {% empty %}
+      {% if not featured_news %}
+      <p class="text-muted py-4">Новости пока не добавлены.</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

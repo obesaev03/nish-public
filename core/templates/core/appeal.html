@@ -1,0 +1,102 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Электронная приёмная — НИШ ИГСУ{% endblock %}
+{% block nav_appeal %}mainbar__nav-link--active{% endblock %}
+
+{% block content %}
+<section class="section section--light">
+  <div class="container" style="max-width:760px;">
+    <div class="section__header">
+      <span class="section__tag">Раздел 01</span>
+      <h1 class="section__heading">Электронная приёмная</h1>
+      <p class="section__lead">
+        Направьте обращение в НИШ ИГСУ: консультации по научной деятельности,
+        запросы на партнёрство и сотрудничество, вопросы по НИР.
+      </p>
+    </div>
+
+    <div class="card" style="padding:40px;">
+      <form method="post" novalidate>
+        {% csrf_token %}
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="{{ form.name.id_for_label }}" class="form-label fw-semibold" style="font-size:.875rem;">
+              {{ form.name.label }} <span style="color:var(--red);">*</span>
+            </label>
+            {{ form.name }}
+            {% if form.name.errors %}
+              <div class="invalid-feedback d-block">{{ form.name.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.email.id_for_label }}" class="form-label fw-semibold" style="font-size:.875rem;">
+              {{ form.email.label }} <span style="color:var(--red);">*</span>
+            </label>
+            {{ form.email }}
+            {% if form.email.errors %}
+              <div class="invalid-feedback d-block">{{ form.email.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.phone.id_for_label }}" class="form-label fw-semibold" style="font-size:.875rem;">
+              {{ form.phone.label }}
+            </label>
+            {{ form.phone }}
+          </div>
+
+          <div class="col-md-6">
+            <label for="{{ form.subject.id_for_label }}" class="form-label fw-semibold" style="font-size:.875rem;">
+              {{ form.subject.label }} <span style="color:var(--red);">*</span>
+            </label>
+            {{ form.subject }}
+            {% if form.subject.errors %}
+              <div class="invalid-feedback d-block">{{ form.subject.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-12">
+            <label for="{{ form.message.id_for_label }}" class="form-label fw-semibold" style="font-size:.875rem;">
+              {{ form.message.label }} <span style="color:var(--red);">*</span>
+            </label>
+            {{ form.message }}
+            {% if form.message.errors %}
+              <div class="invalid-feedback d-block">{{ form.message.errors.0 }}</div>
+            {% endif %}
+          </div>
+
+          <div class="col-12 mt-2">
+            <button type="submit" class="btn btn--primary" style="width:100%; padding:14px;">
+              Отправить обращение
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Контакты -->
+    <div class="row g-3 mt-4">
+      <div class="col-md-4">
+        <div class="card" style="padding:24px; gap:8px;">
+          <p style="font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--grey-400);">Научный отдел НИШ</p>
+          <a href="mailto:nish@igsu.ru" style="color:var(--red); font-weight:600; font-size:.9rem;">nish@igsu.ru</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="padding:24px; gap:8px;">
+          <p style="font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--grey-400);">Справочная служба</p>
+          <a href="tel:+74991561000" style="color:var(--red); font-weight:600; font-size:.9rem;">+7 (499) 156-10-00</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="padding:24px; gap:8px;">
+          <p style="font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--grey-400);">Адрес</p>
+          <p style="font-size:.85rem; color:var(--grey-600); line-height:1.5;">пр-кт Вернадского, д. 82, стр. 1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

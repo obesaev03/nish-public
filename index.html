@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>НИШ ИГСУ — Научно-исследовательская школа государственной службы и управления</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== ШАПКА ===== -->
+  <header class="header" id="top">
+
+    <!-- Верхняя тёмная панель -->
+    <div class="topbar">
+      <div class="container topbar__inner">
+
+        <!-- Левая часть: геолокация + аудитории -->
+        <div class="topbar__left">
+          <span class="topbar__location">
+            <!-- Иконка геопина -->
+            <svg class="topbar__geo-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5Z" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="8" cy="6" r="1.5" fill="currentColor"/>
+            </svg>
+            Москва
+          </span>
+          <nav class="topbar__audience" aria-label="Навигация по аудиториям">
+            <a href="#" class="topbar__link">Сотрудникам</a>
+            <a href="#" class="topbar__link">Аспирантам</a>
+            <a href="#" class="topbar__link">Партнёрам</a>
+            <a href="#" class="topbar__link">Преподавателям и учёным</a>
+          </nav>
+        </div>
+
+        <!-- Правая часть: войти, язык, спецвозможности, поиск -->
+        <div class="topbar__right">
+          <a href="#" class="topbar__link topbar__login">
+            Войти
+            <!-- Иконка стрелки входа -->
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14">
+              <path d="M6 3H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <button class="topbar__icon-btn" aria-label="Язык: русский">РУС</button>
+          <button class="topbar__icon-btn" aria-label="Версия для слабовидящих">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="18" height="18">
+              <path d="M1 10S4 4 10 4s9 6 9 6-3 6-9 6-9-6-9-6Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </button>
+          <button class="topbar__icon-btn" aria-label="Поиск по сайту">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="17" height="17">
+              <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <path d="m14 14 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основная белая панель -->
+    <div class="mainbar">
+      <div class="container mainbar__inner">
+
+        <!-- Логотип -->
+        <a href="#top" class="mainbar__logo" aria-label="НИШ ИГСУ — на главную">
+          <!-- Герб (SVG-эмблема) -->
+          <div class="mainbar__emblem" aria-hidden="true">
+            <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="46" height="54" rx="3" fill="#C01B1B"/>
+              <path d="M24 8 L36 14 L36 28 Q36 40 24 48 Q12 40 12 28 L12 14 Z" fill="none" stroke="white" stroke-width="1.5"/>
+              <path d="M24 14 L30 17 L30 28 Q30 36 24 42 Q18 36 18 28 L18 17 Z" fill="rgba(255,255,255,0.25)"/>
+              <circle cx="24" cy="26" r="4" fill="white" opacity="0.9"/>
+              <path d="M20 30 Q24 38 28 30" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mainbar__logo-text">
+            <span class="mainbar__logo-top">ПРЕЗИДЕНТСКАЯ</span>
+            <span class="mainbar__logo-bottom">АКАДЕМИЯ</span>
+            <span class="mainbar__logo-sub">НИШ ИГСУ</span>
+          </div>
+        </a>
+
+        <!-- Основная навигация (десктоп) -->
+        <nav class="mainbar__nav" id="main-nav" aria-label="Главное меню">
+          <ul class="mainbar__nav-list">
+            <li><a href="#support" class="mainbar__nav-link">Поддержка</a></li>
+            <li><a href="#dictionary" class="mainbar__nav-link">Словарь ГС</a></li>
+            <li><a href="#nir" class="mainbar__nav-link">НИР</a></li>
+            <li><a href="#news" class="mainbar__nav-link">Новости</a></li>
+            <li><a href="#contacts" class="mainbar__nav-link">О НИШ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Правая часть: кнопка + соцсети -->
+        <div class="mainbar__right">
+          <a href="#" class="btn btn--primary mainbar__cta">Электронная приёмная</a>
+
+          <!-- Соцсети -->
+          <div class="mainbar__social" aria-label="Социальные сети">
+            <!-- ВКонтакте -->
+            <a href="#" class="mainbar__social-link" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.586-1.496c.598-.19 1.365 1.26 2.179 1.818.615.422 1.082.33 1.082.33l2.172-.03s1.135-.071.597-1.05c-.044-.076-.314-.67-1.617-1.895-1.365-1.282-1.182-1.074.462-3.292.999-1.345 1.398-2.168 1.273-2.518-.12-.332-.864-.244-.864-.244l-2.443.015s-.181-.025-.315.056c-.132.08-.217.267-.217.267s-.387 1.068-.903 1.977c-1.088 1.878-1.524 1.978-1.702 1.861-.414-.271-.311-1.089-.311-1.67 0-1.815.272-2.572-.531-2.762-.267-.065-.463-.108-1.146-.115-.875-.009-1.616.003-2.035.212-.279.138-.494.447-.363.464.162.022.529.101.723.372.25.348.241 1.129.241 1.129s.144 2.137-.335 2.402c-.328.18-.778-.187-1.745-1.865-.496-.875-.871-1.843-.871-1.843s-.072-.181-.202-.278c-.157-.117-.376-.154-.376-.154l-2.322.015s-.348.01-.476.164c-.114.137-.009.42-.009.42s1.818 4.371 3.878 6.574c1.888 2.02 4.032 1.887 4.032 1.887h.972Z"/>
+              </svg>
+            </a>
+            <!-- Одноклассники -->
+            <a href="#" class="mainbar__social-link" aria-label="Одноклассники">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm-4 8.5c.5-1 1.9-1.8 3-2l1 1 1-1c1.1.2 2.5 1 3 2 .3.6-.1 1.3-.8 1.3-.5 0-.8-.3-1.2-.6a5 5 0 0 0-2-.7 5 5 0 0 0-2 .7c-.4.3-.7.6-1.2.6-.7 0-1.1-.7-.8-1.3Z"/>
+              </svg>
+            </a>
+            <!-- Telegram -->
+            <a href="#" class="mainbar__social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.57-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.72-4.26c.2-.18-.04-.28-.32-.1L7.5 14.47l-2.52-.79c-.55-.17-.56-.55.11-.81l9.86-3.8c.46-.17.86.11.69.73Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Бургер-кнопка (мобильные) -->
+        <button class="burger" id="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- ===== ГЕРОЙ-БЛОК ===== -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__bg-pattern" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Портал научно-исследовательской школы</p>
+        <h1 class="hero__heading" id="hero-heading">
+          Государственная служба<br>и управление
+        </h1>
+        <p class="hero__desc">
+          Единое информационное пространство ИГСУ РАНХиГС для поддержки научных
+          коллективов, профессионального развития и интеграции исследовательских запросов.
+        </p>
+        <!-- Три кнопки к ключевым разделам -->
+        <div class="hero__actions">
+          <a href="#support" class="btn btn--primary">Консультации</a>
+          <a href="#dictionary" class="btn btn--primary">Словарь ГС</a>
+          <a href="#nir" class="btn btn--primary">Интегратор НИР</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__badge">
+          <span class="hero__badge-year">с&nbsp;1921</span>
+          <span class="hero__badge-label">Академия государственного управления</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== РАЗДЕЛ 1: ИНФОРМАЦИОННО-КОНСУЛЬТАЦИОННАЯ ПОДДЕРЖКА ===== -->
+  <section class="section section--light" id="support" aria-labelledby="support-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Раздел 01</span>
+        <h2 class="section__heading" id="support-heading">
+          Информационно-консультационная<br>поддержка коллективов ИГСУ
+        </h2>
+        <p class="section__lead">
+          Центр компетенций для научных и педагогических коллективов кафедр и
+          институтов ИГСУ: экспертные консультации, методическая помощь, правовое
+          сопровождение исследований.
+        </p>
+      </div>
+
+      <!-- Три карточки возможностей -->
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="36" height="32" rx="3" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M14 18h20M14 24h14M14 30h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Методическая база</h3>
+          <p class="card__text">
+            Шаблоны, регламенты и методические рекомендации для организации
+            научных исследований и проектной деятельности.
+          </p>
+          <a href="#" class="card__link">Открыть базу →</a>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="18" r="10" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Экспертное сообщество</h3>
+          <p class="card__text">
+            Доступ к сети экспертов и учёных ИГСУ для получения профессиональных
+            консультаций по тематике государственного управления.
+          </p>
+          <a href="#" class="card__link">Найти эксперта →</a>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6v36M6 24h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3 class="card__title">Онлайн-запрос</h3>
+          <p class="card__text">
+            Направьте запрос на консультацию в удобном формате: выберите тему,
+            эксперта и получите ответ в личном кабинете.
+          </p>
+          <a href="#" class="card__link">Оставить запрос →</a>
+        </article>
+      </div>
+
+      <div class="section__cta">
+        <a href="#" class="btn btn--primary">Перейти в раздел поддержки</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== РАЗДЕЛ 2: ОНЛАЙН-СЛОВАРЬ ===== -->
+  <section class="section section--red" id="dictionary" aria-labelledby="dict-heading">
+    <div class="container">
+      <div class="dict-layout">
+        <div class="dict-layout__info">
+          <span class="section__tag section__tag--light">Раздел 02</span>
+          <h2 class="section__heading section__heading--white" id="dict-heading">
+            Онлайн-словарь<br>«Государственная служба»
+          </h2>
+          <p class="section__lead section__lead--white">
+            Академический терминологический справочник с определениями понятий
+            государственного управления, государственной службы и публичного права.
+            Источники — нормативные акты, научные труды учёных РАНХиГС и ИГСУ.
+          </p>
+          <a href="#" class="btn btn--white">Открыть словарь</a>
+        </div>
+
+        <!-- Виджет быстрого поиска по словарю -->
+        <div class="dict-layout__widget">
+          <div class="dict-widget">
+            <p class="dict-widget__label">Быстрый поиск термина</p>
+            <div class="dict-widget__search">
+              <input
+                type="search"
+                class="dict-widget__input"
+                id="dict-search"
+                placeholder="Например: «государственная должность»"
+                aria-label="Поиск термина в словаре"
+              />
+              <button class="dict-widget__btn" id="dict-search-btn" aria-label="Найти">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                  <path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Быстрые термины (теги) -->
+            <div class="dict-widget__tags" aria-label="Популярные термины">
+              <button class="dict-tag" data-term="государственная служба">государственная служба</button>
+              <button class="dict-tag" data-term="чиновник">чиновник</button>
+              <button class="dict-tag" data-term="должностной регламент">должностной регламент</button>
+              <button class="dict-tag" data-term="реестр должностей">реестр должностей</button>
+              <button class="dict-tag" data-term="конкурс на госслужбу">конкурс</button>
+            </div>
+
+            <!-- Результат поиска (заглушка) -->
+            <div class="dict-widget__result" id="dict-result" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== РАЗДЕЛ 3: ИНТЕГРАТОР НИР ===== -->
+  <section class="section section--light" id="nir" aria-labelledby="nir-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Раздел 03</span>
+        <h2 class="section__heading" id="nir-heading">
+          Интегратор информации<br>о запросах по внешним НИР
+        </h2>
+        <p class="section__lead">
+          Агрегатор актуальных запросов на научно-исследовательские работы от
+          министерств, ведомств, госкорпораций и региональных органов власти.
+          Помогает коллективам ИГСУ оперативно откликаться на внешние заказы.
+        </p>
+      </div>
+
+      <!-- Таблица/список запросов (прототип) -->
+      <div class="nir-table-wrap">
+        <table class="nir-table" aria-label="Актуальные запросы по НИР">
+          <thead>
+            <tr>
+              <th scope="col">Заказчик</th>
+              <th scope="col">Тема НИР</th>
+              <th scope="col">Срок подачи</th>
+              <th scope="col">Статус</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Заказчик">Минтруд России</td>
+              <td data-label="Тема НИР">Оценка эффективности системы наставничества на госслужбе</td>
+              <td data-label="Срок">15 мая 2026</td>
+              <td data-label="Статус"><span class="status status--open">Открыт</span></td>
+              <td><a href="#" class="table-link">Подробнее</a></td>
+            </tr>
+            <tr>
+              <td data-label="Заказчик">Правительство Москвы</td>
+              <td data-label="Тема НИР">Цифровизация административных регламентов: лучшие практики</td>
+              <td data-label="Срок">3 июня 2026</td>
+              <td data-label="Статус"><span class="status status--open">Открыт</span></td>
+              <td><a href="#" class="table-link">Подробнее</a></td>
+            </tr>
+            <tr>
+              <td data-label="Заказчик">Росстандарт</td>
+              <td data-label="Тема НИР">Стандарты качества государственных услуг в субъектах РФ</td>
+              <td data-label="Срок">20 мая 2026</td>
+              <td data-label="Статус"><span class="status status--review">На рассмотрении</span></td>
+              <td><a href="#" class="table-link">Подробнее</a></td>
+            </tr>
+            <tr>
+              <td data-label="Заказчик">Счётная палата РФ</td>
+              <td data-label="Тема НИР">Методология аудита государственных программ: сравнительный анализ</td>
+              <td data-label="Срок">10 июня 2026</td>
+              <td data-label="Статус"><span class="status status--open">Открыт</span></td>
+              <td><a href="#" class="table-link">Подробнее</a></td>
+            </tr>
+            <tr>
+              <td data-label="Заказчик">Минэкономразвития</td>
+              <td data-label="Тема НИР">Регуляторная политика: снижение административной нагрузки</td>
+              <td data-label="Срок">1 июня 2026</td>
+              <td data-label="Статус"><span class="status status--closed">Закрыт</span></td>
+              <td><a href="#" class="table-link">Подробнее</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section__cta">
+        <a href="#" class="btn btn--primary">Все запросы НИР</a>
+        <a href="#" class="btn btn--outline">Разместить запрос</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== БЛОК НОВОСТЕЙ И АНОНСОВ ===== -->
+  <section class="section section--grey" id="news" aria-labelledby="news-heading">
+    <div class="container">
+      <div class="section__header section__header--row">
+        <div>
+          <span class="section__tag">Актуальное</span>
+          <h2 class="section__heading" id="news-heading">Новости и анонсы НИШ</h2>
+        </div>
+        <a href="#" class="btn btn--outline">Все новости</a>
+      </div>
+
+      <div class="news-grid">
+
+        <!-- Главная новость (большая карточка) -->
+        <article class="news-card news-card--featured">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Конференция</span>
+            <time class="news-card__date" datetime="2026-04-28">28 апреля 2026</time>
+          </div>
+          <h3 class="news-card__title">
+            Всероссийская конференция «Государственное управление в эпоху цифровой трансформации»
+          </h3>
+          <p class="news-card__excerpt">
+            ИГСУ РАНХиГС приглашает учёных, практиков и аспирантов к участию в
+            ежегодной конференции. Ключевые темы: ИИ в государственном управлении,
+            GovTech, цифровые сервисы для граждан.
+          </p>
+          <a href="#" class="news-card__link">Подробнее о конференции →</a>
+        </article>
+
+        <!-- Обычные новостные карточки -->
+        <article class="news-card">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Публикация</span>
+            <time class="news-card__date" datetime="2026-04-22">22 апреля 2026</time>
+          </div>
+          <h3 class="news-card__title">
+            Вышел новый номер журнала «Государственное управление»
+          </h3>
+          <p class="news-card__excerpt">
+            В выпуске — статьи о реформировании института государственной службы и
+            компаративный анализ публичного управления в странах БРИКС.
+          </p>
+          <a href="#" class="news-card__link">Читать →</a>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Семинар</span>
+            <time class="news-card__date" datetime="2026-05-05">5 мая 2026</time>
+          </div>
+          <h3 class="news-card__title">
+            Методологический семинар НИШ: оценка регулирующего воздействия
+          </h3>
+          <p class="news-card__excerpt">
+            Онлайн-семинар для преподавателей и исследователей ИГСУ. Регистрация
+            открыта до 3 мая.
+          </p>
+          <a href="#" class="news-card__link">Зарегистрироваться →</a>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Грант</span>
+            <time class="news-card__date" datetime="2026-04-18">18 апреля 2026</time>
+          </div>
+          <h3 class="news-card__title">
+            Открыт конкурс внутренних грантов РАНХиГС на 2026–2027 учебный год
+          </h3>
+          <p class="news-card__excerpt">
+            Приём заявок от научных коллективов ИГСУ до 30 апреля 2026 года.
+            Приоритетные направления: цифровое государство, кадровая политика.
+          </p>
+          <a href="#" class="news-card__link">Условия конкурса →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ФУТЕР ===== -->
+  <footer class="footer" id="contacts">
+
+    <!-- Верхняя строка: лого + соцсети + кнопка -->
+    <div class="footer__topbar">
+      <div class="container footer__topbar-inner">
+
+        <!-- Лого -->
+        <a href="#top" class="footer__logo" aria-label="НИШ ИГСУ — на главную">
+          <div class="footer__emblem" aria-hidden="true">
+            <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="46" height="54" rx="3" fill="#C01B1B"/>
+              <path d="M24 8 L36 14 L36 28 Q36 40 24 48 Q12 40 12 28 L12 14 Z" fill="none" stroke="white" stroke-width="1.5"/>
+              <path d="M24 14 L30 17 L30 28 Q30 36 24 42 Q18 36 18 28 L18 17 Z" fill="rgba(255,255,255,0.25)"/>
+              <circle cx="24" cy="26" r="4" fill="white" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="footer__logo-text">
+            <span class="footer__logo-top">ПРЕЗИДЕНТСКАЯ</span>
+            <span class="footer__logo-bottom">АКАДЕМИЯ</span>
+            <span class="footer__logo-nissh">НИШ ИГСУ</span>
+          </div>
+        </a>
+
+        <!-- Соцсети в футере -->
+        <div class="footer__social" aria-label="Социальные сети НИШ">
+          <!-- Р7 / РУТУБ -->
+          <a href="#" class="footer__social-link" aria-label="Rutube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-1 14V8l6 4-6 4Z"/>
+            </svg>
+          </a>
+          <!-- ВКонтакте -->
+          <a href="#" class="footer__social-link" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.586-1.496c.598-.19 1.365 1.26 2.179 1.818.615.422 1.082.33 1.082.33l2.172-.03s1.135-.071.597-1.05c-.044-.076-.314-.67-1.617-1.895-1.365-1.282-1.182-1.074.462-3.292.999-1.345 1.398-2.168 1.273-2.518-.12-.332-.864-.244-.864-.244l-2.443.015s-.181-.025-.315.056c-.132.08-.217.267-.217.267s-.387 1.068-.903 1.977c-1.088 1.878-1.524 1.978-1.702 1.861-.414-.271-.311-1.089-.311-1.67 0-1.815.272-2.572-.531-2.762-.267-.065-.463-.108-1.146-.115-.875-.009-1.616.003-2.035.212-.279.138-.494.447-.363.464.162.022.529.101.723.372.25.348.241 1.129.241 1.129s.144 2.137-.335 2.402c-.328.18-.778-.187-1.745-1.865-.496-.875-.871-1.843-.871-1.843s-.072-.181-.202-.278c-.157-.117-.376-.154-.376-.154l-2.322.015s-.348.01-.476.164c-.114.137-.009.42-.009.42s1.818 4.371 3.878 6.574c1.888 2.02 4.032 1.887 4.032 1.887h.972Z"/>
+            </svg>
+          </a>
+          <!-- Одноклассники -->
+          <a href="#" class="footer__social-link" aria-label="Одноклассники">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm-4 8.5c.5-1 1.9-1.8 3-2l1 1 1-1c1.1.2 2.5 1 3 2 .3.6-.1 1.3-.8 1.3-.5 0-.8-.3-1.2-.6a5 5 0 0 0-2-.7 5 5 0 0 0-2 .7c-.4.3-.7.6-1.2.6-.7 0-1.1-.7-.8-1.3Z"/>
+            </svg>
+          </a>
+          <!-- Telegram -->
+          <a href="#" class="footer__social-link" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.57-1.9-1.24 1.2c-.14.14-.25.25-.51.25l.18-2.6 4.72-4.26c.2-.18-.04-.28-.32-.1L7.5 14.47l-2.52-.79c-.55-.17-.56-.55.11-.81l9.86-3.8c.46-.17.86.11.69.73Z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- CTA-кнопка -->
+        <a href="#" class="btn btn--primary footer__cta">Электронная приёмная</a>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div class="footer__divider"></div>
+
+    <!-- Основная сетка ссылок -->
+    <div class="container footer__grid-wrap">
+      <div class="footer__grid">
+
+        <!-- Колонка 1: Контактная информация -->
+        <div class="footer__col footer__col--info">
+          <p class="footer__info-label">Сведения об образовательной организации</p>
+          <div class="footer__contacts">
+            <p class="footer__contact-group-label">Единая справочная служба</p>
+            <a href="tel:+74991561000" class="footer__contact-val">+7 (499) 156-10-00</a>
+            <a href="mailto:information@igsu.ru" class="footer__contact-val">information@igsu.ru</a>
+            <p class="footer__address">
+              119571, г. Москва,<br>
+              пр-кт Вернадского, д. 82, стр. 1
+            </p>
+          </div>
+        </div>
+
+        <!-- Колонка 2: Разделы портала -->
+        <div class="footer__col">
+          <ul class="footer__nav-list">
+            <li><a href="#support" class="footer__nav-link">Информационная поддержка</a></li>
+            <li><a href="#dictionary" class="footer__nav-link">Онлайн-словарь «ГС»</a></li>
+            <li><a href="#nir" class="footer__nav-link">Интегратор НИР</a></li>
+            <li><a href="#news" class="footer__nav-link">Новости НИШ</a></li>
+            <li><a href="#" class="footer__nav-link">Мероприятия</a></li>
+            <li><a href="#" class="footer__nav-link">Публикации ИГСУ</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 3: Образование -->
+        <div class="footer__col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">Переводы и восстановление</a></li>
+            <li><a href="#" class="footer__nav-link">Стипендии и поддержка</a></li>
+            <li><a href="#" class="footer__nav-link">Доступная среда</a></li>
+            <li><a href="#" class="footer__nav-link">Общежития</a></li>
+            <li><a href="#" class="footer__nav-link">МФЦ / Студенческий офис</a></li>
+            <li><a href="#" class="footer__nav-link">Карта кампуса</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 4: Академия -->
+        <div class="footer__col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">Руководство ИГСУ</a></li>
+            <li><a href="#" class="footer__nav-link">Кафедры и институты</a></li>
+            <li><a href="#" class="footer__nav-link">Работа в Академии</a></li>
+            <li><a href="#" class="footer__nav-link">Наука в ИГСУ</a></li>
+            <li><a href="#" class="footer__nav-link">Противодействие коррупции</a></li>
+            <li><a href="https://ranepa.ru" target="_blank" rel="noopener" class="footer__nav-link">ranepa.ru</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 5: Медиа -->
+        <div class="footer__col">
+          <ul class="footer__nav-list">
+            <li><a href="#" class="footer__nav-link">История ИГСУ</a></li>
+            <li><a href="#news" class="footer__nav-link">Новости Академии</a></li>
+            <li><a href="#" class="footer__nav-link">Блог НИШ</a></li>
+            <li><a href="#" class="footer__nav-link">Пресс-служба</a></li>
+            <li><a href="#" class="footer__nav-link">Электронная библиотека</a></li>
+            <li><a href="#" class="footer__nav-link">Карта сайта</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 6: Контакты по направлениям -->
+        <div class="footer__col footer__col--contacts">
+          <div class="footer__dept">
+            <p class="footer__dept-label">Для сообщений о фактах коррупции</p>
+            <a href="mailto:anticorruption@igsu.ru" class="footer__dept-email">anticorruption@igsu.ru</a>
+          </div>
+          <div class="footer__dept">
+            <p class="footer__dept-label">Научный отдел НИШ</p>
+            <a href="mailto:nish@igsu.ru" class="footer__dept-email">nish@igsu.ru</a>
+          </div>
+          <div class="footer__dept">
+            <p class="footer__dept-label">Пресс-служба</p>
+            <a href="tel:+74995698798" class="footer__dept-email">+7 (499) 569-87-98</a>
+            <a href="mailto:press@igsu.ru" class="footer__dept-email">press@igsu.ru</a>
+          </div>
+          <div class="footer__dept">
+            <p class="footer__dept-label">Работа в Академии</p>
+            <a href="mailto:rabota@igsu.ru" class="footer__dept-email">rabota@igsu.ru</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Нижняя строка -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copy">Все права защищены. © 2026 Президентская академия — ИГСУ</p>
+        <a href="#" class="footer__policy">Политика РАНХиГС в отношении обработки персональных данных</a>
+      </div>
+    </div>
+
+    <!-- Строка об ошибках -->
+    <div class="footer__error-bar">
+      <div class="container">
+        <p class="footer__error-text">
+          Нашли ошибку на сайте? Выделите её, нажмите
+          <kbd>Ctrl</kbd>+<kbd>Enter</kbd> и отправьте нам уведомление.
+        </p>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
